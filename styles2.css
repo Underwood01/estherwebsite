@@ -1,10 +1,18 @@
-body, html {
+
+* {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: auto;
-    overflow: auto;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    overflow: auto;
 }
 
 .video-background {
@@ -17,77 +25,138 @@ body, html {
     z-index: -1;
 }
 
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+.blur-background {
+    padding-top: 500px;
+    background-color: rgba(255,255,255,0.5);
+    backdrop-filter: blur(0px);
+    border-radius: 20px;
+    width: 80%;
 }
-
-
-body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-}
-
 .content1 {
-padding: 20px;
-}
-
-.hidden {
-opacity: 0;
-transform: translateX(20px);
-transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
+     padding: 20px; 
+    }
+ .hidden {
+         opacity: 0; 
+         transform: translateX(20px);
+          transition: opacity 1s ease-out, transform 1s ease-out; 
+        } 
 .show {
-opacity: 1;
-transform: translateY(0);
-}
-.blur-background{
-padding-top: 500px;
-background-color: rgba(255,255,255,0.5);
-backdrop-filter: blur(0px);
-border-radius: 20px;
-height: auto;
-width: 80%;
-
-
-}
+     opacity: 1;
+      transform: translateY(0);
+     } .blur-background{ padding-top: 500px; background-color: rgba(255,255,255,0.5); backdrop-filter: blur(0px); border-radius: 20px; height: auto; width: 80%; }
 
 .glowing-header {
     font-size: 3em;
     text-align: center;
-    background: linear-gradient(45deg,blue,indigo,green,skyblue
-);
+    background: linear-gradient(45deg, blue, indigo, green, skyblue);
     -webkit-background-clip: text;
     color: transparent;
     text-shadow: 0 0 10px rgba(66, 17, 60, 0.7), 0 0 20px rgb(212, 226, 10), 0 0 30px rgb(13, 74, 241);
     animation: glow 1.5s infinite alternate;
-    border-color: black;
-    border: 15px;
 }
 
 @keyframes glow {
     0% {
         text-shadow: 0 0 10px rgba(24, 23, 24, 0.7), 0 0 20px rgb(19, 19, 18), 0 0 30px rgb(7, 7, 7);
     }
-    
-    
     100% {
         text-shadow: 0 0 20px rgba(2, 228, 2, 0.7), 0 0 20px rgb(14, 72, 233), 0 0 30px rgba(158, 10, 119, 0.3);
     }
 }
-.house{
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.banner {
+    width: 100%;
+    height: 800px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
 }
-.house-image{
+
+.slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1200px);
+    animation: autoRun 60s linear infinite;
+    z-index: 2;
+}
+
+@keyframes autoRun {
+    0% {
+        transform: perspective(1200px) rotateX(-16deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1200px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(300px);
+}
+
+.item img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+.content2{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px,100vh);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.name{
+    font-family: fantasy;
+    font-size: 100px;
+    line-height: 1em;
+    color: #252838;
+    position: relative;
+}
+.name::after{
+        position: absolute;
+        inset: 0 0 0 0;
+        content: attr(data-content);
+        z-index: 2;
+        -webkit-text-stroke: 1px white;
+        color: transparent;
+    }
+
+.author{
+    font-family: 'Courier New' ;
+    text-align: right;
+    max-width: 200px;
+    z-index: 2;
+    margin-top: 15px;
+}
+.author1{
+    font-size: 3em;
+    z-index: 2;
+
+
+}
+.model{
+    background-image: url(C:/Users/Admin/Downloads/housebackground.png);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
 }

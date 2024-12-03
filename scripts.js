@@ -78,14 +78,14 @@ observer.observe(element);
 document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('slider');
     const images = [
-        'C:/Users/Admin/Downloads/house1.jpg',
-        'C:/Users/Admin/Downloads/house2.jpg',
-        'C:/Users/Admin/Downloads/house3.jpg',
-        'C:/Users/Admin/Downloads/house4.jpg',
-        'C:/Users/Admin/Downloads/house5.jpg',
-        'C:/Users/Admin/Downloads/house6.jpg',
-        'C:/Users/Admin/Downloads/house7.jpg',
-        'C:/Users/Admin/Downloads/house8.jpg'
+        'house1.jpg',
+        'house2.jpg',
+        'house3.jpg',
+        'house4.jpg',
+        'house5.jpg',
+        'house6.jpg',
+        'house7.jpg',
+        'house8.jpg'
     ];
 
     slider.style.setProperty('--quantity', images.length);

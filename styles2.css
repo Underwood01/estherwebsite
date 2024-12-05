@@ -74,17 +74,7 @@ body, html {
     text-align: center;
     overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-}
-
-/* Adjust height for smaller screens */
-@media (max-width: 600px) {
-    .banner {
-        height: 400px; /* Adjust height as needed */
-        flex-direction: column; /* Stack items vertically */
-    }
+    display :flex ;
 }
 
 .slider {
